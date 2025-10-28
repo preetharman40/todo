@@ -3,7 +3,7 @@ version: '3.8'
 services:
   backend:
     build: ./backend # Builds using backend/Docker file
-    image: ${{ secrets.DOCKER_USERNAME }}/to-do:backend
+    image: ${DOCKER_USERNAME}/to-do:backend
     env_file:
       - ./.env
     ports:
@@ -15,7 +15,7 @@ services:
 
   frontend:
     build: ./frontend # Builds using frontend/Dockerfile
-    image: ${{ secrets.DOCKER_USERNAME }}/to-do:frontend
+    image: ${DOCKER_USERNAME}/to-do:frontend
     ports:
       - "8501:8501"
     environment:
