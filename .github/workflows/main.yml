@@ -25,6 +25,8 @@ jobs:
           pip install pytest pytest-asyncio httpx
 
       - name: Run tests
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: pytest
 
   build-docker:
