@@ -2,8 +2,7 @@ services:
   backend:
     build: ./backend # Builds using backend/Docker file
     image: ${DOCKER_USERNAME}/to-do:backend
-    env_file:
-      - ./.env
+  
     ports:
       - "8000:8000"
     environment:
