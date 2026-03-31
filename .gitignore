@@ -20,3 +20,6 @@ local_data/
 
 # testing files
 todo_ui_test.py
+
+# logs
+*.log
