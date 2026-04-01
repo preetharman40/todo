@@ -1,0 +1,9 @@
+name: DevOps-Check
+on: [push]
+jobs:
+  test-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a syntax check
+        run: bash -n deployment_script.sh
