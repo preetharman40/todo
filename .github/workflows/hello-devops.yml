@@ -24,3 +24,9 @@ jobs:
 
       - name: "Verify config Exists"
         run: ls configs/app-config.yml
+
+      - name: "Security Audit"
+        run: |
+          echo "Triggered by ${{ github.actor }}"
+          echo "Event Type: ${{ github.even_name }}"
+          echo "Branch/Tag: ${{ github.ref }}"
