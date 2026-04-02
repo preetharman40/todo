@@ -1,0 +1,18 @@
+db_base: &default_db
+  host: "db.internal.corp"
+  port: 5432
+  user: "admin"
+
+environments:
+  development:
+    <<: *default_db
+    user: "dev_user" # this OVERRIDES the anchor's user
+    debug: true
+
+  production:
+    <<: *default_db
+    replication: true # this ADDs a new field to the anchor
+
+  staging:
+    <<: *default_db
+    port: 6432

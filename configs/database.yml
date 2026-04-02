@@ -1,0 +1,12 @@
+services:
+  - name: "api"
+    image: "node:18"
+    ports:
+      - 80
+      - 443
+  - name: "cache"
+    image: "redis:7"
+    ports:
+      - 6379
+  - name: "database"
+    image: "postgres:15"

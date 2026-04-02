@@ -1,0 +1,9 @@
+server_config:
+  port: 8080
+  logs:
+    path: "/var/log/app"
+    level: "debug"
+  features:
+      - "caching"
+      - "auth"
+
