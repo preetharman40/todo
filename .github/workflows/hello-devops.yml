@@ -30,3 +30,15 @@ jobs:
           echo "Triggered by ${{ github.actor }}"
           echo "Event Type: ${{ github.event_name }}"
           echo "Branch/Tag: ${{ github.ref }}"
+
+  database-migration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Run Migration"
+        env:
+          DB_PASS: ${{ secrets.DB_PASSWORD}}
+
+        run: |
+          echo "Connecting to DB with password..."
+          echo "The password is: $DB_PASS"
