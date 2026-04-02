@@ -1,0 +1,16 @@
+name: "Production-Ping"
+on: [push]
+
+jobs:
+  ping-test:
+    run-on: "ubuntu-latest"
+
+    steps:
+      - name: "Checkout Code"
+        uses: actions/checkout@v4
+
+      - name: "Check Version"
+        run: node -v
+
+      - name: "Final Message"
+        run: echo "Devops Pipline is LIVE!"
