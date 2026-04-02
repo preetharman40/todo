@@ -20,3 +20,5 @@ startup_script:  |
   echo "Starting server..."
   mkdir -p /tmp/logs
   python3 server.py --port 9000
+
+  # this is the file for app configurations
