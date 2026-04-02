@@ -28,5 +28,5 @@ jobs:
       - name: "Security Audit"
         run: |
           echo "Triggered by ${{ github.actor }}"
-          echo "Event Type: ${{ github.even_name }}"
+          echo "Event Type: ${{ github.event_name }}"
           echo "Branch/Tag: ${{ github.ref }}"
