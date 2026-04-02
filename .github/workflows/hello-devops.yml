@@ -23,4 +23,4 @@ jobs:
         run: ls -R
 
       - name: "Verify config Exists"
-        run: ls ~/AI/pareto/to-do/configs/app-config.yml
+        run: ls configs/app-config.yml
