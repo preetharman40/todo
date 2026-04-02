@@ -1,5 +1,9 @@
 name: "Production-Ping"
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   ping-test:
@@ -14,3 +18,6 @@ jobs:
 
       - name: "Final Message"
         run: echo "Devops Pipline is LIVE!"
+
+      - name: "Verify config Exists"
+        run: ls configs/app-config.yml
