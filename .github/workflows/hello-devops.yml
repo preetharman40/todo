@@ -20,4 +20,4 @@ jobs:
         run: echo "Devops Pipline is LIVE!"
 
       - name: "Verify config Exists"
-        run: ls configs/app-config.yml
+        run: ls ~/AI/pareto/to-do/configs/app-config.yml
