@@ -19,5 +19,8 @@ jobs:
       - name: "Final Message"
         run: echo "Devops Pipline is LIVE!"
 
+      - name: "Debug - List all files"
+        run: ls -R
+
       - name: "Verify config Exists"
         run: ls ~/AI/pareto/to-do/configs/app-config.yml
