@@ -1,0 +1,22 @@
+name: "frontend-srv"
+version:  "2.1"
+
+Resources:
+  cpu:  2
+  memory: "4Gi"
+
+env: 
+  - "PORT=9000"
+  - "NODE_ENV=production"
+  - "LOG_LEVEL=debug"
+
+features: 
+  - "caches"
+  - "auth"
+  - "metrics"
+  - "health-check"
+
+startup_script:  |  
+  echo "Starting server..."
+  mkdir -p /tmp/logs
+  python3 server.py --port 9000
