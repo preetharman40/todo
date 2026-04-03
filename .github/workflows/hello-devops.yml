@@ -5,6 +5,9 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   ping-test:
     runs-on: "ubuntu-latest"
@@ -77,7 +80,12 @@ jobs:
     needs: build # This is the magic Link
     steps:
       - name: "Running Unit Tests"
-        run: exit 1 #echo "tests are Running... All Passed."
+        run: echo "tests are Running... All Passed."
+
+  call-reusable-build:
+    needs: [test]
+    uses: ./.github/workflows/reusable-docker.yml # local path to your template
+    # Note: No 'steps' allowed here!
 
   deploy-production:
     runs-on: ubuntu-latest

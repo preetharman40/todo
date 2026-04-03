@@ -1,0 +1,8 @@
+on:
+  workflow_call: # this makes it a template
+
+jobs:
+  build-logic:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Running the standard company Docker build process..."
