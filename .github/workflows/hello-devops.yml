@@ -79,7 +79,13 @@ jobs:
       - name: "Running Unit Tests"
         run: echo "tests are Running... All Passed."
 
-
+  deploy-production:
+    runs-on: ubuntu-latest
+    needs: [test]
+    if: github.ref == 'refs/heads/main' # the safety switch
+    steps:
+      - name: "Deploying to Production"
+        run: echo "Deploying to the live cluster..."
 
 
 
