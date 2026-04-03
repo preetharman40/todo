@@ -42,3 +42,51 @@ jobs:
         run: |
           echo "Connecting to DB with password..."
           echo "The password is: $DB_PASS"
+
+  optimized-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Cache Dependencies"
+        id: cache-npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt) }}
+            # The 'key' is a unique fingerprint. If requirements.txt changes, the key changes.
+
+
+      - name: "Install Dependencies (Simulated)"
+        run: |
+          mkdir -p ~/.cache/pip
+          echo "Downloading 500MB of dependencies..."
+          sleep 5 # Simulate a slow download
+          touch ~/.cache/pip/installed_packages.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
