@@ -9,6 +9,22 @@ permissions:
   contents: read
 
 jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Trufflehog needs the full history to find deleted secrets
+
+      - name: "Secret Scanning"
+        # We are using a community action here
+        uses: trufflesecurity/trufflehog@main
+        with:
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+
+
+
   ping-test:
     runs-on: "ubuntu-latest"
 
