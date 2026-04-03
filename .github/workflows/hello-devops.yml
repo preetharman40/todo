@@ -83,12 +83,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test]
     environment: production
-      #if: github.ref == 'refs/heads/main' # the safety switch
+    if: github.ref == 'refs/heads/main' # the safety switch
     steps:
       #- name: "Deploying to Production"
       #  run: echo "Deploying to the live cluster..."
       - name: "Deploying"
         run: echo "Manual approval received"
+  
+  container-build:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Build Docker Image"
+        run: docker build -t my-devops-app:${{ github.sha }} .
 
 
 
