@@ -1,0 +1,24 @@
+name: "Emergency-Rollback"
+
+on:
+  workflow_dispatch: # This enables the 'Run Workflow' button in the UI
+    inputs:
+      version_to_deploy:
+        description: 'The Commit SHA or Tag to roll back to'
+        required: true
+        type: string
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Identifying Target Version"
+        run: |
+          echo "🚨 ROLLBACK INITIATED"
+          echo "Target Version: ${{ github.event.inputs.version_to_deploy }}"
+          
+      - name: "Simulating Registry Pull"
+        run: |
+          # In a real job, this would be: docker pull ghcr.io/your-repo/app:${{ inputs.version_to_deploy }}
+          echo "Pulling image from GHCR..."
+          echo "Successfully restored version ${{ inputs.version_to_deploy }} to Production."
