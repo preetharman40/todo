@@ -82,11 +82,13 @@ jobs:
   deploy-production:
     runs-on: ubuntu-latest
     needs: [test]
-    if: github.ref == 'refs/heads/main' # the safety switch
+    environment: production
+      #if: github.ref == 'refs/heads/main' # the safety switch
     steps:
-      - name: "Deploying to Production"
-        run: echo "Deploying to the live cluster..."
-
+      #- name: "Deploying to Production"
+      #  run: echo "Deploying to the live cluster..."
+      - name: "Deploying"
+        run: echo "Manual approval received"
 
 
 
