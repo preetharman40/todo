@@ -3,7 +3,7 @@ name: "Python-Check"
 on:
   push:
     branches:
-      -  'data-*'
+      -  'feature/data-*'
 
 jobs:
   test-compatibility:
