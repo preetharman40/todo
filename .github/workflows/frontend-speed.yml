@@ -30,6 +30,6 @@ jobs:
           mkdir -p ~/.npm
           echo "This is fake downloaded code" > ~/.npm/fake-react-library.txt
           
-          echo "Dependencies installed""
+          echo "Dependencies installed"
     
       
