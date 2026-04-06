@@ -17,8 +17,8 @@ jobs:
         id: cache-npm
         uses: actions/cache@v4
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('package-lock.json') }}
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
 
 
       - name: "Install Dependencies (Simulated)"
