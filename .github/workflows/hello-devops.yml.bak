@@ -88,15 +88,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: "Compiling Application"
-        run: echo "Code is compiling... Done."
+      - name: "Create Build Artifact"
+        run: echo "This is the compiled binary" > build-app.txt
+      - name: "Upload Artifact"
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-binary # the name of the package
+          path: build-app.txt # the file to save
 
   test:
     runs-on: ubuntu-latest
     needs: build # This is the magic Link
     steps:
-      - name: "Running Unit Tests"
-        run: echo "tests are Running... All Passed."
+      - name: "Download Artifact"
+        uses: actions/download-artifact@v4
+        with:
+          name: app-binary # must match the upload name!
+      - name: "Verify Artifact"
+        run: cat build-app.txt
 
   call-reusable-build:
     needs: [test]
