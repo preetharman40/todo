@@ -1,0 +1,30 @@
+name: "caching opt"
+
+on: workflow_dispatch
+
+jobs:
+  build-fast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: "Setup Node JS"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: "Cache node"
+        id: cache-npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('package-lock.json') }}
+
+
+      - name: "Install Dependencies (Simulated)"
+        run: |
+          echo "Simulating npm  install..."
+          sleep 10 # pretend this takes a long time
+          echo "Dependencies installed"
+    
+      
