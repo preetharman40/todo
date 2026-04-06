@@ -23,8 +23,13 @@ jobs:
 
       - name: "Install Dependencies (Simulated)"
         run: |
-          echo "Simulating npm  install..."
-          sleep 10 # pretend this takes a long time
-          echo "Dependencies installed"
+          echo "Simulating npm install..."
+          sleep 10 
+          
+        
+          mkdir -p ~/.npm
+          echo "This is fake downloaded code" > ~/.npm/fake-react-library.txt
+          
+          echo "Dependencies installed""
     
       
